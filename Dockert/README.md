@@ -1,14 +1,19 @@
 ﻿# Dockert 🐳🍵
 
-Dockert 🐳🍵 makes testing with Docker in .NET simpler.
+Dockert 🐳🍵 makes utilizing Docker containers from .NET simpler.
 
 Need a database? Dockert will help you easily test that database, across all platforms.
 
 Have an unwieldy third party dependency? Containerize it!
 
-Doing micro services in the cloud? We feel you. We hear you. 
+Doing micro services in the cloud? Dockert feels you. Dockert hears you. 
 
-We're here to make it simpler. Because more whales means more tea. Or something.
+Dockert is here to make it simpler. Because more whales means more tea. Or something.
+
+## What is Dockert?
+
+Dockert is a simple wrapper around the Docker APIs and is very useful for creating (more) declarative tests that utilize Docker containers.
+Dockert utilizes Docker.Dotnet and provides simplifying wrappers as well as a handy, asynchronously disposable container wrapper class which makes writing tests that spin up containers a breeze.
 
 ## Getting started
 
@@ -62,3 +67,5 @@ Even if we try our best, unexpected errors may occur. Sometimes containers can't
 ```
     await dockerClient.PruneContainers(includeRunning: true);
 ```
+
+You can also find all containers created by Dockert yourself by listing containers labeled `"dockert=container"`.

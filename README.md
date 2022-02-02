@@ -64,7 +64,7 @@ public class MysqlContainer : AsyncDisposableContainer
 
 ## Handling lingering containers
 Even if we try our best, unexpected errors may occur. Sometimes containers can't be started, or will start, but then exit, or similar, leaving us with containers Dockert can't clean up properly. To remove these (as best we can), just go to your command line and remove them one by one, or simply:
-```
+```C#
     await dockerClient.PruneContainers(includeRunning: true);
 ```
 

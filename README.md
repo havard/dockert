@@ -19,20 +19,20 @@ Dockert utilizes Docker.Dotnet and provides simplifying wrappers as well as a ha
 
 Here's how you start a container in a test:
 
-```
+```C#
 // We use an instance of DockerClient from Docker.DotNet to pull an image, create and start a container
 var containerId = await dockerClient.CreateContainer(imageName, environmentVariables, portBindings);
 await dockerClient.StartContainer(containerId);
 ```
 Now you write your arrange/act/asserts as usual, and then when you're done, just:
-```
+```C#
 await dockerClient.StopAndRemoveContainer(containerId);
 ```
 
 Since tests may fail and there's boilerplate involved with handling cleanup easily, we also include
 the `AsyncDisposableContainer` for you to simplify even further:
 
-```
+```C#
 await using var container = await AsyncDisposableContainer.FromImage(imageName);
 ```
 You now have a running container and can arrange/act/assert as normal. The container will be stopped
@@ -41,7 +41,7 @@ and removed when the test is done, or fails, or something unexpected happens.
 You can also subclass `AsyncDisposableContainer` and create a custom container with a simple API for your particular use case.
 We recommend using a factory method to instantiate your container, utilizing the `Create` factory method provided:
 
-```
+```C#
 public class MysqlContainer : AsyncDisposableContainer
 {
     private MysqlContainer(IDockerClient dockerClient, string containerId)

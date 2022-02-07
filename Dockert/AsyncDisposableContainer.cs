@@ -51,9 +51,9 @@ namespace Dockert
             return factory(dockerClient, containerId);
         }
 
-        public async Task CopyFiles(params (string SourceFile, string? TargetFile, int Permissions)[] files)
+        public async Task CopyFiles((string SourceFile, string? TargetFile, int Permissions)[] files, CancellationToken cancellationToken = default)
         {
-            await dockerClient.CopyFiles(containerId, files);
+            await dockerClient.CopyFiles(containerId, files, cancellationToken);
         }
 
         public async Task<long> RunCommand(string command, bool captureOutput = false, CancellationToken cancellationToken = default)

@@ -100,7 +100,7 @@ namespace Dockert
         public async ValueTask DisposeAsync()
         {
             await DisposeAsyncCore();
-
+            dockerClient.Dispose();
             GC.SuppressFinalize(this);
         }
 

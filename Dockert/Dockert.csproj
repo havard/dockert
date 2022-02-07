@@ -12,7 +12,7 @@
 
   <PropertyGroup>
     <Authors>Håvard Stranden</Authors>
-    <VersionPrefix>0.2.0</VersionPrefix>
+    <VersionPrefix>0.2.1</VersionPrefix>
     <Copyright>Copyright © 2022 Håvard Stranden</Copyright>
     <PackageProjectUrl>https://github.com/havard/dockert</PackageProjectUrl>
     <Description>Dockert (🐳🍵) makes using Docker containers in .NET simpler.</Description>
